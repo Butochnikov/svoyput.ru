@@ -13,9 +13,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased bg-gray-900 text-white">
-        <div class="min-h-screen flex items-center justify-center">
-            <div class="relative">
-                <video class="w-[600px] h-[600px] rounded-full object-cover" src="/vid/svoy.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+        <div class="min-h-screen flex items-center justify-center px-4">
+            <div class="relative w-full max-w-[600px]">
+                <video class="w-full aspect-square rounded-full object-cover" src="/vid/svoy.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
                 <div class="w-full text-center font-['Caveat'] text-xl">
                     Свой путь... v{{ ver() }}
                 </div>
