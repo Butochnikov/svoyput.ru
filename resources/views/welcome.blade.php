@@ -37,11 +37,11 @@
                     id="main-video"
                     class="w-full max-h-[calc(100vh-8rem)] aspect-square rounded-full object-cover opacity-0 transition-opacity duration-300" 
                     src="/vid/svoy.mp4" 
+                    preload="auto"
                     muted 
                     loop 
                     onmouseover="this.play()" 
                     onmouseout="this.pause()"
-                    onloadeddata="document.getElementById('video-spinner').style.display='none'; this.style.opacity='1';"
                 ></video>
                 
                 <div class="w-full text-center font-['Caveat'] text-xl mt-4">
@@ -49,5 +49,23 @@
                 </div>
             </div>
         </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const video = document.getElementById('main-video');
+                const spinner = document.getElementById('video-spinner');
+                
+                video.addEventListener('canplaythrough', function() {
+                    spinner.style.display = 'none';
+                    video.style.opacity = '1';
+                });
+                
+                // Резервный вариант на случай быстрой загрузки
+                if (video.readyState >= 3) {
+                    spinner.style.display = 'none';
+                    video.style.opacity = '1';
+                }
+            });
+        </script>
     </body>
 </html>
